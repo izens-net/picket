@@ -1,8 +1,16 @@
-const loadRules = (form) => async (ev) => {
-  const formData = new FormData(form)
-  const policyFileUrl = formData.get('policyFile')
-  const policyFile = await fetch(policyFileUrl)
+const storeRulesForUser = (policyFile) => {
+  chrome.storage.sync.set(policyFile)
+}
+
+const fetchPolicyFile = async (policyFileUrl) => {
+  return fetch(policyFileUrl)
     .then(resp => resp.json())
+}
+
+const loadRules = (form) => async (ev) => {
+  const policyFileUrl = new FormData(form).get('policyFile')
+  const policyFile = await fetchPolicyFile(policyFileUrl)
+  storeRulesForUser(policyFile)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
