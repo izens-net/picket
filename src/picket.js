@@ -1,5 +1,5 @@
 chrome.webRequest.onBeforeRequest.addListener(
-  () => { return { cancel: true } },
+  () => { return { cancel: false } },
   { urls: ['*://www.notarealwebsite.com/*'] },
   ['blocking']
 )
