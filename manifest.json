@@ -2,5 +2,12 @@
   "name": "Netizens Association Browser Extension",
   "version": "0.0",
   "description": "Collective bargaining for netizens",
-  "manifest_version": 2
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["src/picket.js"],
+    "persistent": true
+  },
+  "permissions": [
+    "webRequest", "webRequestBlocking", "*://www.notarealwebsite.com/*"
+  ]
 }
