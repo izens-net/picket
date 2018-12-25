@@ -4,13 +4,13 @@
   "description": "Collective bargaining for netizens",
   "manifest_version": 2,
   "background": {
-    "scripts": ["src/picket.js"],
+    "scripts": ["src/picket/picket.js"],
     "persistent": true
   },
   "permissions": [
     "storage", "webRequest", "webRequestBlocking", "<all_urls>"
   ],
   "browser_action": {
-    "default_popup": "src/popup.html"
+    "default_popup": "src/popup/popup.html"
   }
 }
