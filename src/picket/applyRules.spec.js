@@ -1,5 +1,5 @@
-const { expect } = require('chai')
-const applyRules = require('./applyRules.js')
+import { expect } from 'chai'
+import applyRules from './applyRules.js'
 
 describe('applyRules', () => {
   it('cancels blocked url', () => {

@@ -6,7 +6,7 @@ const matchesRulePattern = (url) => ({ sites }) => {
   return sites.some(pattern => new RegExp(pattern.replace('*', '.*')).test(url))
 }
 
-const applyRules = (rules) => (url) => {
+export default (rules) => (url) => {
   return rules
     .filter(matchesRulePattern(url))
     .reduce((acc, rule) => {
@@ -14,5 +14,3 @@ const applyRules = (rules) => (url) => {
       return {}
     }, {})
 }
-
-module.exports = applyRules

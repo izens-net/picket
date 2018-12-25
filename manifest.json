@@ -4,7 +4,7 @@
   "description": "Collective bargaining for netizens",
   "manifest_version": 2,
   "background": {
-    "scripts": ["src/picket/picket.js"],
+    "scripts": ["dist/picket.js"],
     "persistent": true
   },
   "permissions": [

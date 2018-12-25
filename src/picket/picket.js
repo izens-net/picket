@@ -1,8 +1,8 @@
-const applyRules = require('./applyRules.js')
+import applyRules from './applyRules.js'
 
 const fetchRulesFromStorage = () => {
   return new Promise((resolve) => {
-    chrome.storage.sync.get(['rules'], resolve)
+    chrome.storage.sync.get(['rules'], ({ rules }) => resolve(rules))
   })
 }
 

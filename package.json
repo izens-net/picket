@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/**/*.spec.js"
+    "build": "rollup src/picket/picket.js --file dist/picket.js --format iife",
+    "test": "mocha src/**/*.spec.js --require babel-register --require babel-polyfill"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,13 @@
   },
   "homepage": "https://github.com/NetizensAssociation/picket#readme",
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "rollup": "^0.68.2"
   }
 }
