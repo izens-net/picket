@@ -1,18 +1,15 @@
 import applyRules from './applyRules.js'
 
-const fetchRulesFromStorage = () => {
-  return new Promise((resolve) => {
-    chrome.storage.sync.get(['rules'], ({ rules }) => resolve(rules))
-  })
-}
-
-const checkUrl = async ({ url }) => {
-  const rules = await fetchRulesFromStorage()
-  return applyRules(rules)(url)
-}
+let rules = []
+chrome.storage.sync.get(['rules'], (value) => {
+  if (value.rules) rules = value.rules
+})
+chrome.storage.onChanged.addListener((value) => {
+  if (value.rules) rules = value.rules
+})
 
 chrome.webRequest.onBeforeRequest.addListener(
-  checkUrl,
+  (details) => applyRules(rules)(details),
   { urls: ['<all_urls>'] },
   ['blocking']
 )

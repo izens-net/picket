@@ -6,7 +6,7 @@ describe('applyRules', () => {
     const blockingResponse = applyRules([{
       "sites": ["*://www.notarealwebsite.com/*"],
       "actions": [ { "action": "block", "message": "not okay" } ]
-    }])('http://www.notarealwebsite.com')
+    }])({ url: 'http://www.notarealwebsite.com' })
 
     expect(blockingResponse).to.deep.equal({ cancel: true })
   })
@@ -15,7 +15,7 @@ describe('applyRules', () => {
     const blockingResponse = applyRules([{
       "sites": ["*://www.notarealwebsite.com/*"],
       "actions": [ { "action": "block", "message": "not okay" } ]
-    }])('http://abc')
+    }])({ url: 'http://abc' })
 
     expect(blockingResponse).to.deep.equal({})
   })
