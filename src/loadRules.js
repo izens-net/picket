@@ -1,5 +1,7 @@
 const storeRulesForUser = (policyFile) => {
-  chrome.storage.sync.set(policyFile)
+  chrome.storage.sync.set(policyFile, () => {
+    console.log('Rules saved!')
+  })
 }
 
 const fetchPolicyFile = async (policyFileUrl) => {
