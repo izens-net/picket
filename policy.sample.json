@@ -5,7 +5,9 @@
       "sites": ["*://www.notarealwebsite.com/*"],
       "actions": [
         { "action": "block", "message": "not okay" }
-      ],
+      ]
+    },
+    {
       "sites": ["*://www.google.com/*"],
       "actions": [
         { "action": "warn", "message": "so so" }
