@@ -14,6 +14,6 @@
     "default_popup": "src/popup/popup.html"
   },
   "web_accessible_resources": [
-    "src/picket/templates/blocked.html"
+    "src/pages/blocked.html"
   ]
 }

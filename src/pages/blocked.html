@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="./blocked.js"/>
+    </script>
     <style>
       body {
         font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
@@ -35,18 +37,12 @@
       <div class="pure-g">
           <div class="pure-u-1-8"></div>
           <div class="pure-u-1-2">
-            <p id="reason">The reason provided by {{union_name}} is:</p>
+            <p id="reason">The reason provided is:</p>
             <blockquote id="loaded-message" class="loaded-message"></blockquote>
             <p>For more information, click <a href="{{link}}">here</a></p>
           </div>
           <div class="pure-u-1-8"></div>
       </div>
     </main>
-    <script type="text/javascript">
-theMessage = new URL(document.URL).searchParams.get("msg");
-theUnion = new URL(document.URL).searchParams.get("union");
-document.getElementById("loaded-message").innerText = theMessage;
-document.getElementById("reason").innerText
-  = "The reason provided by " + theUnion + " is:"
-    </script>
+
 </html>

@@ -1,17 +1,15 @@
 import applyRules from './applyRules.js'
 
-let rules = []
-chrome.storage.sync.get(['rules'], (value) => {
-  if (value.rules) rules = value.rules
+let policy = {}
+chrome.storage.sync.get(['policy'], (value) => {
+  if (value.policy) policy = value.policy
 })
 chrome.storage.onChanged.addListener((value) => {
-  if (value.rules) rules = value.rules
+  if (value.policy) policy = value.policy
 })
 
 chrome.webRequest.onBeforeRequest.addListener(
-  (details) => applyRules(rules)(details),
+  (details) => applyRules(policy)(details),
   { urls: ['<all_urls>'] },
   ['blocking']
 )
-
-
