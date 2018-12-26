@@ -22,7 +22,7 @@ export default (policy) => ({ url }) => {
       const blocked = rule.actions.find(a => a.action === 'block')
       if (blocked) { return blockRequest(policy.name, blocked.message) }
       const warn = rule.actions.find(a => a.action === 'warn')
-      if (warn) { return blockRequest(policy.name, warn.message) }
+      if (warn) { return prepareBanner(policy.name, warn.message) }
       return {}
     }, {})
 }
