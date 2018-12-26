@@ -4,15 +4,15 @@ const storePolicyForUser = (policyFile) => {
   })
 }
 
-const fetchPolicyFile = async (policyFileUrl) => {
+const fetchPolicyFile = (policyFileUrl) => {
   return fetch(policyFileUrl)
     .then(resp => resp.json())
 }
 
-const loadPolicy = (form) => async (ev) => {
+const loadPolicy = (form) => (ev) => {
+  ev.preventDefault();
   const policyFileUrl = new FormData(form).get('policyFile')
-  const policyFile = await fetchPolicyFile(policyFileUrl)
-  storePolicyForUser(policyFile)
+  fetchPolicyFile(policyFileUrl).then(p => storePolicyForUser(p));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
