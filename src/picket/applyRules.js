@@ -1,5 +1,6 @@
 const blockRequest = () => {
-  return { cancel: true }
+  const extension = chrome.runtime.getURL("src/picket/templates/blocked.html")
+  return { redirectUrl: extension }
 }
 
 const matchesRulePattern = (url) => ({ sites }) => {
