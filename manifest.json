@@ -21,6 +21,7 @@
     "default_popup": "src/popup/popup.html"
   },
   "web_accessible_resources": [
-    "src/pages/blocked.html"
+    "src/pages/blocked.html",
+    "src/shared.css"
   ]
 }

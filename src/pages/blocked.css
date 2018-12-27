@@ -1,0 +1,24 @@
+body {
+  font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+  background-color: var(--main-font-color);
+  color: var(--main-color);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.content {
+  margin-top: 8rem;
+}
+
+.blocked-title {
+  font-size: 2rem;
+  color: var(--first-complimentary-color);
+}
+
+p {
+  font-size: 1rem;
+}
+
+.loaded-message {
+}

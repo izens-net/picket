@@ -1,11 +1,3 @@
-:root {
-  --main-bg-color: #FCF8EE;
-  --main-color: #061722;
-  --first-complimentary-color: #0A5A77;
-  --second-complimentary-color: #965E1C;
-  --supporting-color: #81B5D1;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -13,17 +5,17 @@ body {
 
 .modal {
   width: 18rem;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-font-color);
   color: var(--main-color);
 }
 
 .modal-content {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 2rem;
 }
 
 input[type=submit] {
-  background-color: var(--first-complimentary-color);
-  color: var(--main-bg-color);
+  background-color: var(--main-color);
+  color: var(--main-font-color);
   border-radius: 0.2rem;
   border: 0;
   padding: 0.2rem;

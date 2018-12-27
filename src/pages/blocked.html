@@ -4,45 +4,19 @@
     <meta charset="utf-8">
     <title>Netizens' Association - Site blocked</title>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link href='../shared.css' rel='stylesheet'>
+    <link href='./blocked.css' rel='stylesheet'>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="./blocked.js"/>
-    </script>
-    <style>
-      body {
-        font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
-      }
-      .blocked-title {
-        font-size: 16px;
-      }
-      p {
-        font-size: 13px;
-        color: #777;
-      }
-      .loaded-message {
-      }
-    </style>
+    <script type="text/javascript" src="./blocked.js"/></script>
   </head>
   <body>
-    <header>
-      <div class="pure-g">
-        <div class="pure-u-1-8"></div>
-        <div class="pure-u-1-2">
+    <div class="content">
       <h1 class="blocked-title">This site was blocked by your union</h1>
-      </div>
-        <div class="pure-u-1-8"></div>
-      </div>
-    </header>
-    <main>
-      <div class="pure-g">
-          <div class="pure-u-1-8"></div>
-          <div class="pure-u-1-2">
-            <p id="reason">The reason provided is:</p>
-            <blockquote id="loaded-message" class="loaded-message"></blockquote>
-            <p>For more information, click <a href="https://netizensassociation.github.io/website/">here</a></p>
-          </div>
-          <div class="pure-u-1-8"></div>
-      </div>
-    </main>
+      <p id="reason">The reason provided is:</p>
+      <blockquote id="loaded-message" class="loaded-message"></blockquote>
+      <p>For more information, click <a href="https://netizensassociation.github.io/website/">here</a>.</p>
+    </div>
+  </body>
 
 </html>
