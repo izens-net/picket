@@ -7,8 +7,12 @@ const blockRequest = (union, msg) => {
   return { redirectUrl: extension }
 }
 
-const prepareBanner = (msg) => {
-  chrome.storage.local.set({ warn: msg });
+const prepareBanner = (url, msg) => {
+  const hostname = new URL(url).hostname
+  chrome.storage.local.get(['warn'], (value) => {
+    const warn = Object.assign({ [hostname]: msg }, value.warn)
+    chrome.storage.local.set({ warn });
+  })
 }
 
 const matchesRulePattern = (url) => ({ sites }) => {
@@ -21,8 +25,9 @@ export default (policy) => ({ url }) => {
     .reduce((acc, rule) => {
       const blocked = rule.actions.find(a => a.action === 'block')
       if (blocked) { return blockRequest(policy.name, blocked.message) }
+
       const warn = rule.actions.find(a => a.action === 'warn')
-      if (warn) { return prepareBanner(policy.name, warn.message) }
+      if (warn) { return prepareBanner(url, warn.message) }
       return {}
     }, {})
 }
