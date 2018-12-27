@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup src/picket/picket.js --file dist/picket.js --format iife",
+    "build": "rollup src/backgroundScript/picket.js --file dist/picket.js --format iife",
     "test": "mocha src/**/*.spec.js --require babel-register --require babel-polyfill"
   },
   "repository": {

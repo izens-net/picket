@@ -11,7 +11,7 @@
     {
       "matches": ["<all_urls>"],
       "run_at": "document_start",
-      "js": ["src/picket/addBanner.js"]
+      "js": ["src/warnBanner/addBanner.js"]
     }
   ],
   "permissions": [
@@ -21,7 +21,7 @@
     "default_popup": "src/popup/popup.html"
   },
   "web_accessible_resources": [
-    "src/pages/blocked.html",
+    "src/blockedPage/blocked.html",
     "src/shared.css"
   ]
 }
