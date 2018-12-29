@@ -8,7 +8,7 @@
       ]
     },
     {
-      "sites": ["*://www.anotherfakewebsite.com/*"],
+      "sites": ["*://www.notawebsite.com/*"],
       "actions": [
         { "action": "warn", "message": "so so" }
       ]

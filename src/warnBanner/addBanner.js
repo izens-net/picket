@@ -1,4 +1,4 @@
-const sharedStyles = chrome.runtime.getURL('src/shared.css')
+const sharedStyles = chrome.runtime.getURL('shared.css')
 
 const ignoreBannerClickHandler = () => {
   chrome.storage.local.get(['warn'], (value) => {

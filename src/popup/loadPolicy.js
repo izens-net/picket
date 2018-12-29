@@ -1,5 +1,5 @@
-const storePolicyForUser = (policyFile) => {
-  chrome.storage.sync.set({ policy: policyFile }, () => {
+const storePolicyForUser = (policy, policyFileUrl) => {
+  chrome.storage.sync.set({ policy, policyFileUrl, date: Date.now() }, () => {
     console.log('Rules saved!')
   })
 }
@@ -12,7 +12,7 @@ const fetchPolicyFile = (policyFileUrl) => {
 const loadPolicy = (form) => (ev) => {
   ev.preventDefault();
   const policyFileUrl = new FormData(form).get('policyFile')
-  fetchPolicyFile(policyFileUrl).then(p => storePolicyForUser(p));
+  fetchPolicyFile(policyFileUrl).then(p => storePolicyForUser(p, policyFileUrl));
 }
 
 document.addEventListener('DOMContentLoaded', () => {

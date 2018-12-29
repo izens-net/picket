@@ -3,7 +3,7 @@ const blockRequest = (union, msg) => {
   const msgEncoded = encodeURIComponent(msg);
   const extension = chrome
     .runtime
-    .getURL(`src/blockedPage/blocked.html?union=${unionEncoded}&msg=${msgEncoded}`)
+    .getURL(`blocked.html?union=${unionEncoded}&msg=${msgEncoded}`)
   return { redirectUrl: extension }
 }
 
