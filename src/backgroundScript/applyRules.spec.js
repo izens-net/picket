@@ -17,7 +17,7 @@ const policy = {
 describe('applyRules', () => {
   it('cancels blocked url', () => {
     const blockingResponse = applyRules(policy)({ url: 'http://www.notarealwebsite.com' })
-    const expected = "src/blockedPage/blocked.html?union=pineapple&msg=not%20okay"
+    const expected = "blocked.html?union=pineapple&msg=not%20okay"
     expect(blockingResponse).to.deep.equal({ redirectUrl: expected })
   })
 

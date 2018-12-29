@@ -9,14 +9,9 @@ const fetchPolicyFile = (policyFileUrl) => {
     .then(resp => resp.json())
 }
 
-const loadPolicy = (form) => (ev) => {
-  ev.preventDefault();
+export default (form) => {
   const policyFileUrl = new FormData(form).get('policyFile')
-  fetchPolicyFile(policyFileUrl).then(p => storePolicyForUser(p, policyFileUrl));
+  return fetchPolicyFile(policyFileUrl)
+    .then(p => storePolicyForUser(p, policyFileUrl));
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const policyFileForm = document.getElementById('policyFileForm')
-  policyFileForm.addEventListener('submit', loadPolicy(policyFileForm))
-})
 
