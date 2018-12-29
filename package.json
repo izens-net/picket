@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup src/backgroundScript/picket.js --file dist/picket.js --format iife",
-    "test": "mocha src/**/*.spec.js --require babel-register --require babel-polyfill"
+    "watch": "npm run build -- -w",
+    "test": "mocha src/**/*.spec.js --require babel-register --require babel-polyfill",
+    "test-watch": "npm run test -- -w"
   },
   "repository": {
     "type": "git",
