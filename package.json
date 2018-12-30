@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "watch": "npm run build -- -w",
-    "test": "mocha src/**/*.spec.js --require babel-register --require babel-polyfill --require testSetup.js",
+    "test": "mocha \"src/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js",
     "test-watch": "npm run test -- -w"
   },
   "repository": {

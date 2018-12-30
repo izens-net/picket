@@ -1,9 +1,10 @@
-import loadPolicy from './loadPolicy'
+import loadPolicy from '../loadPolicy'
 
 document.addEventListener('DOMContentLoaded', () => {
   const policyFileForm = document.getElementById('policyFileForm')
   policyFileForm.addEventListener('submit', (ev) => {
     ev.preventDefault();
-    loadPolicy(policyFileForm)
+    const policyFileUrl = new FormData(policyFileForm).get('policyFile')
+    loadPolicy(policyFileUrl)
   })
 })

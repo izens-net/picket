@@ -15,7 +15,7 @@
     }
   ],
   "permissions": [
-    "storage", "webRequest", "webRequestBlocking", "<all_urls>"
+    "storage", "webRequest", "webRequestBlocking", "<all_urls>", "alarms"
   ],
   "browser_action": {
     "default_popup": "popup.html"

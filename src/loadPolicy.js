@@ -9,8 +9,7 @@ const fetchPolicyFile = (policyFileUrl) => {
     .then(resp => resp.json())
 }
 
-export default (form) => {
-  const policyFileUrl = new FormData(form).get('policyFile')
+export default (policyFileUrl) => {
   return fetchPolicyFile(policyFileUrl)
     .then(p => storePolicyForUser(p, policyFileUrl));
 }
