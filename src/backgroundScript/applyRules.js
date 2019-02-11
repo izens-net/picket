@@ -1,3 +1,12 @@
+const shouldBlock = (blocked) => {
+  if (!blocked) return false
+
+  const { startDate, endDate } = blocked
+  if (startDate && new Date(startDate) > Date.now()) return false
+  if (endDate && new Date(endDate) < Date.now()) return false
+  return true
+}
+
 const blockRequest = (union, msg) => {
   const unionEncoded = encodeURIComponent(union);
   const msgEncoded = encodeURIComponent(msg);
@@ -20,14 +29,18 @@ const matchesRulePattern = (url) => ({ sites }) => {
 }
 
 export default (policy) => ({ url }) => {
-  return policy.rules
-    .filter(matchesRulePattern(url))
-    .reduce((acc, rule) => {
-      const blocked = rule.actions.find(a => a.action === 'block')
-      if (blocked) { return blockRequest(policy.name, blocked.message) }
+  const rule = policy.rules
+    .find(matchesRulePattern(url))
 
-      const warn = rule.actions.find(a => a.action === 'warn')
-      if (warn) { return prepareBanner(url, warn.message) }
-      return {}
-    }, {})
+  if (!rule) return {}
+
+  const blockAction = rule.actions.find(a => a.action === 'block')
+  if (shouldBlock(blockAction)) {
+    return blockRequest(policy.name, blockAction.message)
+  }
+
+  const warn = rule.actions.find(a => a.action === 'warn')
+  if (warn) { return prepareBanner(url, warn.message) }
+
+  return {}
 }
