@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] Add dates for boycotts
+- [x] Add dates for boycotts
 - [ ] Hit boycott endpoint
 - [ ] Change website url where it is mentioned
 - [ ] Edit content on website
