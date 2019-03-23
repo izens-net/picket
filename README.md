@@ -30,6 +30,7 @@ visit [our website](https://netizensassociation.github.io/website/).
 - Uploading the Chrome extension in developer mode, read through [Chrome's
   Getting Started
   guide](https://developer.chrome.com/extensions/getstarted#manifest)
+- Running extension in Firefox (in watch mode): `npm run firefox`
 
 ## Project Structure
 
