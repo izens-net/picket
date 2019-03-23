@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "firefox": "npm run watch & web-ext run --source-dir=dist/",
     "build": "rollup -c rollup.config.js",
     "watch": "npm run build -- -w",
     "test": "mocha \"src/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js",
@@ -29,7 +30,8 @@
     "rollup": "^1.0.0",
     "rollup-copy-plugin": "^0.1.0",
     "sinon": "^7.2.2",
-    "sinon-chai": "^3.3.0"
+    "sinon-chai": "^3.3.0",
+    "web-ext": "^3.0.0"
   },
   "dependencies": {}
 }
