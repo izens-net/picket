@@ -2,7 +2,26 @@ import applyRules from './applyRules.js'
 import loadPolicy from '../loadPolicy.js'
 
 let policyUrl
-let policy = { name: "none", rules: [] }
+let testPolicy = {
+  "name" : "pineapple",
+  "rules": [
+    {
+      "sites": ["*://www.notarealwebsite.com/*"],
+      "actions": [
+        { "action": "block", "message": "not okay" }
+      ]
+    },
+    {
+      "sites": ["*://www.notawebsite.com/*"],
+      "actions": [
+        { "action": "warn", "message": "so so" }
+      ]
+    }
+  ]
+}
+let policy = process.env.NODE_ENV === 'test'
+  ? testPolicy
+  : { name: "none", rules: [] }
 
 // retrieve policy from storage
 chrome.storage.sync.get(['policy', 'policyFileUrl'], (value) => {
