@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/picket
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:8
 
     steps:
       - checkout

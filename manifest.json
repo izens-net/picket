@@ -7,6 +7,11 @@
     "scripts": ["picket.js"],
     "persistent": true
   },
+  "applications": {
+    "gecko": {
+      "id": "picket@izens.net"
+    }
+  },
   "browser_specific_settings": {
     "gecko": {
       "id": "picket@izens.net"
