@@ -18,7 +18,7 @@ seamlessly. This is how it works:
    rules, the netizen will see a warning banner as she browses.
 
 To read more about Netizens' Association and for a list of existing unions,
-visit [our website](https://netizensassociation.github.io/website/).
+visit [our website](https://izens.net).
 
 ## Contributing
 
