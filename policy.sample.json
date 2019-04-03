@@ -1,6 +1,6 @@
 {
   "name" : "pineapple",
-  "url": "http://the-internet.herokuapp.com/",
+  "url": "https://izens.net/",
   "rules": [
     {
       "sites": ["*://www.notarealwebsite.com/*"],
