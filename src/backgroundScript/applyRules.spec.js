@@ -11,19 +11,21 @@ describe('applyRules', () => {
   it('cancels blocked url with no dates', () => {
     const policy = {
       "name": "pineapple",
+      "url": "www.pineapple.com",
       "rules": [{
         "sites": ["*://www.notarealwebsite.com/*"],
         "actions": [{ "action": "block", "message": "not okay" }]
       }]
     }
     const blockingResponse = applyRules(policy)({ url: 'http://www.notarealwebsite.com' })
-    const expected = "blocked.html?union=pineapple&msg=not%20okay"
+    const expected = "blocked.html?union=pineapple&msg=not%20okay&union_url=www.pineapple.com"
     expect(blockingResponse).to.deep.equal({ redirectUrl: expected })
   })
 
   it('cancels blocked url with start date but no end date', () => {
     const policy = {
       "name": "pineapple",
+      "url": "www.pineapple.com",
       "rules": [{
         "sites": ["*://www.today.com/*"],
         "actions": [{
@@ -35,13 +37,14 @@ describe('applyRules', () => {
     }
 
     const blockingResponse = applyRules(policy)({ url: 'http://www.today.com' })
-    const expected = "blocked.html?union=pineapple&msg=not%20okay"
+    const expected = "blocked.html?union=pineapple&msg=not%20okay&union_url=www.pineapple.com"
     expect(blockingResponse).to.deep.equal({ redirectUrl: expected })
   })
 
   it('cancels blocked url with start and end date', () => {
     const policy = {
       "name": "pineapple",
+      "url": "www.pineapple.com",
       "rules": [{
         "sites": ["*://www.today.com/*"],
         "actions": [{
@@ -53,7 +56,7 @@ describe('applyRules', () => {
       }]
     }
     const blockingResponse = applyRules(policy)({ url: 'http://www.today.com' })
-    const expected = "blocked.html?union=pineapple&msg=not%20okay"
+    const expected = "blocked.html?union=pineapple&msg=not%20okay&union_url=www.pineapple.com"
     expect(blockingResponse).to.deep.equal({ redirectUrl: expected })
   })
 

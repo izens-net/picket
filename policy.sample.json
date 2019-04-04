@@ -1,5 +1,6 @@
 {
   "name" : "pineapple",
+  "url": "https://izens.net/",
   "rules": [
     {
       "sites": ["*://www.notarealwebsite.com/*"],
