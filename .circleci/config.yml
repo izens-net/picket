@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/picket
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:8-browsers
 
     steps:
       - checkout
@@ -16,6 +16,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
+      - run: npm run integration-test
       - run: npm run build
 
 
