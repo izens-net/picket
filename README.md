@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/izens-net/picket.svg?style=svg)](https://circleci.com/gh/izens-net/picket)
+
 # Picket - Netizens' Association's Browser Extension
 
 This project is a browser extension that allows unions to organize boycotts
