@@ -36,7 +36,7 @@ const runTest = (name) => {
 }
 
 describe('picket', () => {
-  const browsers = ['firefox', 'chrome']
+  const browsers = ['chrome']
   browsers.forEach(runTest)
 })
 

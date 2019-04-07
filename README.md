@@ -27,6 +27,7 @@ visit [our website](https://netizensassociation.github.io/website/).
 - Building in watch mode: `npm run watch`
 - Running tests: `npm run test`
 - Running tests in watch mode: `npm run test-watch`
+- Running browser tests: `npm run integration-test`
 - Uploading the Chrome extension in developer mode, read through [Chrome's
   Getting Started
   guide](https://developer.chrome.com/extensions/getstarted#manifest)

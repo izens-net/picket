@@ -9,8 +9,8 @@
     "watch": "npm run build -- -w",
     "test": "mocha \"src/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js",
     "test-watch": "npm run test -- -w",
-    "build-xpi": "zip -rj picket.zip dist/ && mv picket.{zip,xpi}",
-    "integration-test": "NODE_ENV=test npm run build && npm run build-xpi && mocha \"integrationTest/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js --timeout 10000"
+    "build-xpi": "npm run build && web-ext build -s dist/ --overwrite-dest && mv web-ext-artifacts/netizens_association_browser_extension-0.0.1.{zip,xpi}",
+    "integration-test": "NODE_ENV=test npm run build && mocha \"integrationTest/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js --timeout 10000"
   },
   "repository": {
     "type": "git",
