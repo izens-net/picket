@@ -1,5 +1,6 @@
 import copy from 'rollup-copy-plugin'
 import replace from 'rollup-plugin-replace'
+import json from 'rollup-plugin-json'
 
 const createConfig = (filename, bundleName) => {
   return {
@@ -9,6 +10,7 @@ const createConfig = (filename, bundleName) => {
       format: 'iife'
     },
     plugins: [
+      json({ preferConst: true }),
       replace({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       }),
