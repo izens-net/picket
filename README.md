@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/izens-net/picket.svg?style=svg)](https://circleci.com/gh/izens-net/picket)
+
 # Picket - Netizens' Association's Browser Extension
 
 This project is a browser extension that allows unions to organize boycotts
@@ -27,6 +29,7 @@ visit [our website](https://izens.net).
 - Building in watch mode: `npm run watch`
 - Running tests: `npm run test`
 - Running tests in watch mode: `npm run test-watch`
+- Running browser tests: `npm run integration-test`
 - Uploading the Chrome extension in developer mode, read through [Chrome's
   Getting Started
   guide](https://developer.chrome.com/extensions/getstarted#manifest)
