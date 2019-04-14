@@ -83,7 +83,6 @@ describe('applyRules', () => {
         }]
       }
       const blockingResponse = applyRules(policy)({ url: 'http://www.tomorrow.com' })
-      const expected = "blocked.html?union=pineapple&msg=not%20okay"
       expect(blockingResponse).to.deep.equal({})
     })
 
@@ -101,7 +100,42 @@ describe('applyRules', () => {
         }]
       }
       const blockingResponse = applyRules(policy)({ url: 'http://www.tomorrow.com' })
-      const expected = "blocked.html?union=pineapple&msg=not%20okay"
+      expect(blockingResponse).to.deep.equal({})
+    })
+
+    it('does nothing if request stems from the firefox plugin itself', () => {
+      const policy = {
+        "name": "pineapple",
+        "rules": [{
+          "sites": ["*://www.someurl.com/*"],
+          "actions": [{
+            "action": "block",
+            "message": "not okay"
+          }]
+        }]
+      }
+      const blockingResponse = applyRules(policy)({
+        url: 'http://www.someurl.com',
+        originUrl: 'moz-extension://ef1552b8-052b-cc40-96c4-9e5c96a04ab5'
+      })
+      expect(blockingResponse).to.deep.equal({})
+    })
+
+    it('does nothing if request stems from the chrome plugin itself', () => {
+      const policy = {
+        "name": "pineapple",
+        "rules": [{
+          "sites": ["*://www.someurl.com/*"],
+          "actions": [{
+            "action": "block",
+            "message": "not okay"
+          }]
+        }]
+      }
+      const blockingResponse = applyRules(policy)({
+        url: 'http://www.someurl.com',
+        initiator: 'chrome-extension://gobjlgheeckeagjkcpgeihdldilajlni'
+      })
       expect(blockingResponse).to.deep.equal({})
     })
 
@@ -116,7 +150,7 @@ describe('applyRules', () => {
           }]
         }]
       }
-      const blockingResponse = applyRules(policy)({ url: 'http://www.boycott.com' })
+      const blockingResponse = applyRules(policy)({ url: 'http://www.boycott.com/somePath' })
       const expectedRequest = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
@@ -124,7 +158,7 @@ describe('applyRules', () => {
       }
 
       expect(global.fetch).to.have.been
-        .calledWith('http://www.boycott.com', expectedRequest)
+        .calledWith('http://www.boycott.com/boycott', expectedRequest)
     })
   })
 
