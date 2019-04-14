@@ -2,14 +2,20 @@ import { expect } from 'chai'
 import { stub } from 'sinon'
 import applyRules from './applyRules.js'
 
-global.chrome = { runtime: { getURL: (str) => str } }
 const today = new Date(Date.now()).toDateString()
 const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toDateString()
 const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toDateString()
 const dayBefore = new Date(new Date().getTime() - 48 * 60 * 60 * 1000).toDateString()
 
 describe('applyRules', () => {
-  afterEach(() => { global.fetch = stub() })
+  beforeEach(() => {
+    global.chrome = {
+      runtime: { getURL: (str) => str },
+      storage: { local: { get: stub(), set: stub() } }
+    }
+    global.fetch = stub()
+    global.URL = require('url').URL
+  })
 
   context('blocking', () => {
     it('cancels blocked url with no dates', () => {
@@ -119,6 +125,39 @@ describe('applyRules', () => {
 
       expect(global.fetch).to.have.been
         .calledWith('http://www.boycott.com', expectedRequest)
+    })
+  })
+
+  context('warn', () => {
+    it('adds warning banner', () => {
+      global.chrome.storage.local.get.callsFake((value, callback) => callback({}))
+      const policy = {
+        "name": "pineapple",
+        "rules": [{
+          "sites": ["*://warn.com/*"],
+          "actions": [{ "action": "warn", "message": "not okay" }]
+        }]
+      }
+      applyRules(policy)({ url: 'http://warn.com' })
+
+      expect(global.chrome.storage.local.set).to.have.been
+        .calledWith({ warn: { 'warn.com': 'not okay' } })
+    })
+
+    it('does not add if banner was already ignored by user', () => {
+      global.chrome.storage.local.get
+        .callsFake((value, callback) => callback({ warn: { 'warn.com': false } }))
+      const policy = {
+        "name": "pineapple",
+        "rules": [{
+          "sites": ["*://warn.com/*"],
+          "actions": [{ "action": "warn", "message": "not okay" }]
+        }]
+      }
+      applyRules(policy)({ url: 'http://warn.com' })
+
+      expect(global.chrome.storage.local.set).to.have.been
+        .calledWith({ warn: { 'warn.com': false } })
     })
   })
 
