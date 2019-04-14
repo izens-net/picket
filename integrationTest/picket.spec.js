@@ -22,15 +22,16 @@ const runTest = (name) => {
       await driver.sleep(1000)
       const text = await driver.findElement(By.id('warning-banner')).getText()
 
-      expect(text).to.contain('This website does not comply')
+      expect(text).to.contain('so so')
     })
 
     it('blocks', async () => {
       await driver.get('http://www.notarealwebsite.com')
       await driver.sleep(1000)
-      const text = await driver.findElement(By.css('.blocked-title')).getText()
+      const text = await driver.findElement(By.css('.content')).getText()
 
-      expect(text).to.contain('This site was blocked')
+      expect(text).to.contain('This site was blocked by pineapple')
+      expect(text).to.contain('not okay')
     })
   })
 }
