@@ -34,6 +34,7 @@ visit [our website](https://izens.net).
   Getting Started
   guide](https://developer.chrome.com/extensions/getstarted#manifest)
 - Running extension in Firefox (in watch mode): `npm run firefox`
+- Submitting to Firefox: `npm run build && zip -r picket.zip dist/*`
 
 ## Project Structure
 
