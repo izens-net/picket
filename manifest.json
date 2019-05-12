@@ -27,6 +27,8 @@
   },
   "web_accessible_resources": [
     "blocked.html",
-    "shared.css"
+    "custom.css",
+    "normalize.css",
+    "skeleton.css"
   ]
 }

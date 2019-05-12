@@ -23,7 +23,9 @@ export default [
         'src/popup/popup.css': 'dist/popup.css',
         'src/blockedPage/blocked.html': 'dist/blocked.html',
         'src/blockedPage/blocked.css': 'dist/blocked.css',
-        'src/shared.css': 'dist/shared.css'
+        'website/css/custom.css': 'dist/custom.css',
+        'website/css/normalize.css': 'dist/normalize.css',
+        'website/css/skeleton.css': 'dist/skeleton.css'
       })
     ]
   })
