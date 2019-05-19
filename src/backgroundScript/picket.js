@@ -30,6 +30,14 @@ chrome.runtime.onInstalled.addListener(() => {
   })
 })
 
+// listen to the union links on the website
+chrome.runtime.onMessage.addListener((request) => {
+  if (request.policyFileUrl) {
+    policyUrl = request.policyFileUrl
+    loadPolicy(policyUrl)
+  }
+})
+
 // handles request
 chrome.webRequest.onBeforeRequest.addListener(
   (details) => applyRules(policy)(details),

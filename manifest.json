@@ -22,6 +22,11 @@
       "matches": ["<all_urls>"],
       "run_at": "document_start",
       "js": ["banner.js"]
+    },
+    {
+      "matches": ["*://izens.net/*"],
+      "run_at": "document_start",
+      "js": ["campaignLinks.js"]
     }
   ],
   "permissions": [

@@ -22,6 +22,7 @@ export default [
   createConfig('src/backgroundScript/picket.js', 'picket'),
   createConfig('src/popup/popup.js', 'popup'),
   createConfig('src/blockedPage/blocked.js', 'blocked'),
+  createConfig('src/contentScripts/campaignLinks.js', 'campaignLinks'),
   Object.assign(createConfig('src/warnBanner/addBanner.js', 'banner'),
   {
     plugins: [
