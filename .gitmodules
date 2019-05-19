@@ -1,0 +1,4 @@
+[submodule "website"]
+	path = website
+	url = git@github.com:izens-net/website.git
+	branch = master
