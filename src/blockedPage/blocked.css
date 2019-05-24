@@ -1,14 +1,16 @@
 body {
-  font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+  font-family: 'IBM Plex Mono', 'Courier new', Courier, monospace;
   background-color: var(--main-font-color);
   color: var(--main-color);
   display: flex;
+  align-items: center;
   width: 100%;
+  height: 100vh;
   justify-content: center;
 }
 
 .content {
-  margin-top: 8rem;
+ text-align: center;
 }
 
 .blocked-title {
