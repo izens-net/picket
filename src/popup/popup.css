@@ -1,7 +1,7 @@
 .modal {
   text-align: center;
   width: 20em;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
 .modal-content {
@@ -25,25 +25,18 @@ form{
 input[type=text]{
   font-size: 0.85em;
   border-radius: 0.3em;
-  border: 1px solid #d5d5d5;
+  background-color: #ededed;
+  border: 0;
   width: 100%;
   padding: 1em;
   margin: 0 0 2em 0;
-  -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
-  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
-  transition: box-shadow, transform, 100ms ease;
 }
 
 input[type=text]:hover,
 input[type=text]:focus{
   outline: none;
-  transform: scale(1.025);
-  -webkit-box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.13);
-  -moz-box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.13);
-  box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.13);
 }
 
 input[type=text]::placeholder{
-  color: #c0c0c0;
+  color: #8e8e8e;
 }
