@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Netizens Association</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href='./normalize.css' rel='stylesheet'>
     <link href='./skeleton.css' rel='stylesheet'>
     <link href='./custom.css' rel='stylesheet'>
@@ -8,14 +9,31 @@
     <script src='./popup.js'></script>
   </head>
   <body>
+    <div class="success" id="notification">
+      <i class="fas fa-fist-raised"></i>
+      <p>You've joined a union!</p>
+    </div>
     <div class='modal'>
       <div class='modal-content'>
         <div class="logo">netizens</div>
-        <form id='policyFileForm'>
-          <!-- <label for='policyFile'>Link to the policy file</label> -->
-          <input id='policyFile' name='policyFile' type='text' placeholder="Paste policy here..." required>
-          <button type='submit' value='Update policy'>Update policy</button>
+        <form id='policyFileForm' onsubmit="submitForm()">
+          <input id='policyFile' name='policyFile' type='text' autocomplete="off" placeholder="Paste campaign policy here..." required>
+          <button type='submit' value='Update policy'>Join campaign</button>
         </form>
+        <!-- <a class="row" href="">
+          <i class="fas fa-question-circle"></i>
+          <p>Need help?</p>
+        </a> -->
+      </div>
+      <div class="grid footer">
+        <a class="row" href="https://github.com/izens-net" target="_blank">
+          <i class="fab fa-github"></i>
+          <p>/izens-net</p>
+        </a>
+        <a class="row" href="https://izens.net/" target="_blank">
+          <i class="fas fa-home"></i>
+          <p>izens.net</p>
+        </a>
       </div>
     </div>
   </body>

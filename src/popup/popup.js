@@ -8,3 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPolicy(policyFileUrl)
   })
 })
+
+// $("#policyFileForm").submit(function(e) {
+//   var animateIn = document.getElementById("notification");
+//   animateIn.className = "show";
+//   setTimeout(function(){
+//     animateIn.className = animateIn.className.replace("show", "");
+//   }, 3000);
+//   e.preventDefault();
+// });
