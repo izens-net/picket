@@ -24,12 +24,16 @@ visit [our website](https://izens.net).
 
 ## Contributing
 
-- Installing: `npm install`
+- Installing:
+  - NPM dependencies: `npm install`
+  - Git submodules (for shared CSS with the website only):
+  `git submodule init && git submodule update`
 - Building: `npm run build`
 - Building in watch mode: `npm run watch`
 - Running tests: `npm run test`
 - Running tests in watch mode: `npm run test-watch`
 - Running browser tests: `npm run integration-test`
+- Updating the shared styles with the website (please commit the changes): `git submodule update --remote`
 - Uploading the Chrome extension in developer mode, read through [Chrome's
   Getting Started
   guide](https://developer.chrome.com/extensions/getstarted#manifest)

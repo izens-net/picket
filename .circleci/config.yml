@@ -11,6 +11,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm install
+      - run: git submodule init
+      - run: git submodule update
       - save_cache:
           paths:
             - node_modules
