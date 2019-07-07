@@ -44,7 +44,7 @@ const runTest = (name) => {
       await driver.sleep(1000)
       const text = await driver.findElement(By.css('.content')).getText()
 
-      expect(text).to.contain('This site was blocked by pineapple')
+      expect(text).to.contain('This site was blocked by Pineapple')
       expect(text).to.contain('our demands for privacy!')
     })
   })
