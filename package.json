@@ -13,7 +13,8 @@
     "build-zip": "npm run build && cd dist && zip -r ../picket.zip * && cd -",
     "integration-test": "NODE_ENV=test npm run build && mocha \"integrationTest/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js --timeout 10000",
     "webstore-upload": "npm run build-zip && webstore upload --source picket.zip --extension-id $WEBSTORE_EXTENSION_ID --client-id $WEBSTORE_CLIENT_ID --client-secret $WEBSTORE_CLIENT_SECRET --refresh-token $WEBSTORE_REFRESH_TOKEN",
-    "webstore-publish": "webstore publish --extension-id $WEBSTORE_EXTENSION_ID --client-id $WEBSTORE_CLIENT_ID --client-secret $WEBSTORE_CLIENT_SECRET --refresh-token $WEBSTORE_REFRESH_TOKEN"
+    "webstore-publish": "webstore publish --extension-id $WEBSTORE_EXTENSION_ID --client-id $WEBSTORE_CLIENT_ID --client-secret $WEBSTORE_CLIENT_SECRET --refresh-token $WEBSTORE_REFRESH_TOKEN",
+    "firefox-sign": "web-ext sign --source-dir dist --channel listed"
   },
   "repository": {
     "type": "git",

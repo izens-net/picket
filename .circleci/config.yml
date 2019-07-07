@@ -17,6 +17,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run build
+      - run: ./node_modules/.bin/web-ext lint --source-dir dist
 
   test:
     docker:
@@ -72,6 +73,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run webstore-publish
+      - run: npm run firefox-sign -- --api-key $WEB_EXT_API_KEY --api-secret $WEB_EXT_API_SECRET 
 
 
 workflows:
@@ -79,9 +81,7 @@ workflows:
   build-test-deploy:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+      - test
       - upload:
           requires:
             - test
