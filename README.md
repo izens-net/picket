@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/izens-net/picket.svg?style=svg)](https://circleci.com/gh/izens-net/picket)
 
-# Picket - Netizens' Association's Browser Extension
+# Picket - Browser Extension
 
 This project is a browser extension that allows unions to organize boycotts
 and define their demands, while guaranteeing union members can participate
@@ -19,7 +19,7 @@ seamlessly. This is how it works:
    as to why). In case the website is not blocked, but still violates union
    rules, the netizen will see a warning banner as she browses.
 
-To read more about Netizens' Association and for a list of existing unions,
+To read more about izens.net and for a list of existing unions,
 visit [our website](https://izens.net).
 
 ## Contributing

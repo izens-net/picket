@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NetizensAssociation/picket.git"
+    "url": "git+https://github.com/izens-net/picket.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NetizensAssociation/picket/issues"
+    "url": "https://github.com/izens-net/picket/issues"
   },
-  "homepage": "https://github.com/NetizensAssociation/picket#readme",
+  "homepage": "https://github.com/izens-net/picket#readme",
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
