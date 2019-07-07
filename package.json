@@ -10,7 +10,10 @@
     "test": "mocha \"src/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js",
     "test-watch": "npm run test -- -w",
     "build-xpi": "npm run build && web-ext build -s dist/ --overwrite-dest && mv web-ext-artifacts/netizens_association_browser_extension-0.0.1.{zip,xpi}",
-    "integration-test": "NODE_ENV=test npm run build && mocha \"integrationTest/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js --timeout 10000"
+    "build-zip": "npm run build && zip -r dist picket.zip",
+    "integration-test": "NODE_ENV=test npm run build && mocha \"integrationTest/**/*.spec.js\" --require babel-register --require babel-polyfill --require testSetup.js --timeout 10000",
+    "webstore-upload": "npm run build-zip && webstore upload --source picket.zip --extension-id $WEBSTORE_EXTENSION_ID --client-id $WEBSTORE_CLIENT_ID --client-secret $WEBSTORE_CLIENT_SECRET --refresh-token $WEBSTORE_REFRESH_TOKEN",
+    "webstore-publish": "webstore publish --extension-id $WEBSTORE_EXTENSION_ID --client-id $WEBSTORE_CLIENT_ID --client-secret $WEBSTORE_CLIENT_SECRET --refresh-token $WEBSTORE_REFRESH_TOKEN"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
+    "chrome-webstore-upload-cli": "^1.2.0",
     "mocha": "^5.2.0",
     "node-fetch": "^2.3.0",
     "rollup": "^1.0.0",
