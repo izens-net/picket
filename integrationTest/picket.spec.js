@@ -26,6 +26,7 @@ const runTest = (name) => {
       await driver
         .findElement(By.css('#campaigns > ul > li:first-child > a'))
         .click()
+      await driver.sleep(1000)
     })
 
     after(async () => driver.quit())
