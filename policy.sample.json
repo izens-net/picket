@@ -1,17 +1,17 @@
 {
-  "name" : "pineapple",
+  "name" : "Pineapple Campaign",
   "url": "https://izens.net/",
   "rules": [
     {
       "sites": ["*://www.notarealwebsite.com/*"],
       "actions": [
-        { "action": "block", "message": "not okay" }
+        { "action": "block", "message": "This website does not comply with our demands for privacy!" }
       ]
     },
     {
       "sites": ["*://www.notawebsite.com/*"],
       "actions": [
-        { "action": "warn", "message": "so so" }
+        { "action": "warn", "message": "This website does not comply with our demands for a free internet!" }
       ]
     }
   ]
