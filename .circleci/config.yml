@@ -55,7 +55,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run webstore-upload
 
-  upload:
+  publish:
     docker:
       - image: circleci/node:8-browsers
 
