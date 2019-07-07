@@ -1,15 +1,21 @@
-const { Builder, By, Key, until } = require('selenium-webdriver')
+const { Capabilities, Builder, By, Key, until } = require('selenium-webdriver')
 const { expect } = require('chai')
 const chrome = require('selenium-webdriver/chrome')
 const firefox = require('selenium-webdriver/firefox')
 
 const runTest = (name) => {
   describe(`${name}`, () => {
-    const chromeOptions = new chrome.Options()
-      .addArguments('--load-extension=./dist')
+    const chromeCapabilities = Capabilities.chrome();
+    chromeCapabilities.set(
+      'goog:chromeOptions', {
+        args: [
+          '--load-extension=./dist',
+        ],
+      }
+    )
     const driver = new Builder()
       .forBrowser(name)
-      .setChromeOptions(chromeOptions)
+      .withCapabilities(chromeCapabilities)
       .build()
 
     before(async () => {
@@ -28,7 +34,6 @@ const runTest = (name) => {
       await driver.get('http://www.notawebsite.com')
       await driver.sleep(1000)
       const text = await driver.findElement(By.id('warning-banner')).getText()
-      console.log(text)
 
       expect(text).to.contain('so so')
     })
@@ -37,7 +42,6 @@ const runTest = (name) => {
       await driver.get('http://www.notarealwebsite.com')
       await driver.sleep(1000)
       const text = await driver.findElement(By.css('.content')).getText()
-      console.log(text)
 
       expect(text).to.contain('This site was blocked by pineapple')
       expect(text).to.contain('not okay')
