@@ -28,6 +28,7 @@ const runTest = (name) => {
       await driver.get('http://www.notawebsite.com')
       await driver.sleep(1000)
       const text = await driver.findElement(By.id('warning-banner')).getText()
+      console.log(text)
 
       expect(text).to.contain('so so')
     })
@@ -36,6 +37,7 @@ const runTest = (name) => {
       await driver.get('http://www.notarealwebsite.com')
       await driver.sleep(1000)
       const text = await driver.findElement(By.css('.content')).getText()
+      console.log(text)
 
       expect(text).to.contain('This site was blocked by pineapple')
       expect(text).to.contain('not okay')
