@@ -7,13 +7,20 @@ const runTest = (name) => {
   describe(`${name}`, () => {
     const chromeOptions = new chrome.Options()
       .addArguments('--load-extension=./dist')
-    const firefoxOptions = new firefox.Options()
-      .addExtensions('./picket.xpi')
     const driver = new Builder()
       .forBrowser(name)
       .setChromeOptions(chromeOptions)
-      .setFirefoxOptions(firefoxOptions)
       .build()
+
+    before(async () => {
+      await driver
+        .get('https://izens.net')
+      await driver.sleep(100)
+
+      await driver
+        .findElement(By.css('#campaigns > ul > li:first-child > a'))
+        .click()
+    })
 
     after(async () => driver.quit())
 
