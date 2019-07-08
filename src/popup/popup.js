@@ -6,14 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ev.preventDefault();
     const policyFileUrl = new FormData(policyFileForm).get('policyFile')
     loadPolicy(policyFileUrl)
+      .then(e => {
+        var animateIn = document.getElementById("notification");
+        animateIn.className = "show";
+        setTimeout(function(){
+          animateIn.className = animateIn.className.replace("show", "");
+        }, 3000);
+        e.preventDefault();
+      })
   })
 })
-
-// $("#policyFileForm").submit(function(e) {
-//   var animateIn = document.getElementById("notification");
-//   animateIn.className = "show";
-//   setTimeout(function(){
-//     animateIn.className = animateIn.className.replace("show", "");
-//   }, 3000);
-//   e.preventDefault();
-// });
