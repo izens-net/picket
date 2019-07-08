@@ -2,6 +2,7 @@
   text-align: center;
   width: 20em;
   background-color: #fff;
+  font-family: "IBM Plex Mono", "Courier new", Courier, monospace;
 }
 
 .modal-content {
@@ -16,6 +17,10 @@
   text-decoration: none;
   color: #333333;
   letter-spacing: -0.03em;
+}
+
+.campaigns {
+  margin-bottom: 20px;
 }
 
 form{
