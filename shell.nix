@@ -3,9 +3,9 @@
 
 with pkgs;
 
-stdenv.mkDerivation {
+mkShell {
     name = "netizens-dev";
-    buildInputs = [ nodejs-8_x ] ;
+    buildInputs = [ nodejs-14_x ] ;
     LANG = "en_US.UTF-8";
     libraryPkgconfigDepends = [ zlib ];
     shellHook = ''
