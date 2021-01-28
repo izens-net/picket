@@ -5,7 +5,11 @@ with pkgs;
 
 mkShell {
     name = "netizens-dev";
-    buildInputs = [ nodejs-14_x ] ;
+    buildInputs = [
+      nodejs-14_x
+      chromedriver
+      chromium
+    ] ;
     LANG = "en_US.UTF-8";
     libraryPkgconfigDepends = [ zlib ];
     shellHook = ''
