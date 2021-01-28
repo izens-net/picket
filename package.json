@@ -32,8 +32,8 @@
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "chrome-webstore-upload-cli": "^1.2.0",
-    "mocha": "^5.2.0",
-    "node-fetch": "^2.3.0",
+    "mocha": "^8.2.1",
+    "node-fetch": "^2.6.1",
     "rollup": "^1.0.0",
     "rollup-copy-plugin": "^0.1.0",
     "rollup-plugin-json": "^4.0.0",
@@ -41,7 +41,7 @@
     "selenium-webdriver": "^4.0.0-alpha.1",
     "sinon": "^7.2.2",
     "sinon-chai": "^3.3.0",
-    "web-ext": "^3.0.0"
+    "web-ext": "^5.5.0"
   },
   "dependencies": {}
 }
